@@ -1,0 +1,53 @@
+# xlsx_to_csv_consolidator
+
+A simple Python tool to consolidate multiple `.xlsx` files from a folder (and subfolders) into a single `.csv` file.
+
+## ✨ Features
+
+- Recursively scans a folder for `.xlsx` files
+- Consolidates all of them into a single `DataFrame` via Pandas
+- Exports the result as a single `.csv`
+- Configurable paths via environment variables (no sensitive data exposed)
+
+## 🛠️ Technologies
+
+- Python 3.13.5
+- [Pandas](https://pandas.pydata.org/)
+- [python-dotenv](https://pypi.org/project/python-dotenv/)
+
+## 🚀 How to use
+
+### 1. Clone the repository
+git clone https://github.com/sucrilos_kelogs/xlsx_to_csv_consolidator.git
+cd xlsx_to_csv_consolidator
+
+### 2. Install dependencies
+pip install pandas python-dotenv
+
+### 3. Configure environment variables
+Copy the example file and fill in your paths:
+cp .env.example .env
+
+Edit the `.env`:
+SOURCE_FOLDER=C:\path\to\your\source\folder
+OUTPUT_FILE=C:\path\to\your\output\file.csv
+
+### 4. Run
+python consolidator.py
+
+## ⚠️ Known limitations
+
+- Does not use a database (e.g. DuckDB), so it **cannot detect changes** in already-processed files — only the addition of new files.
+- All `.xlsx` files must have a compatible column structure for the concatenation to work correctly.
+
+## 📁 Project structure
+
+xlsx_to_csv_consolidator/
+├── consolidator.py    # Main script
+├── .env.example       # Configuration template
+├── .gitignore         # Ignores .env and generated files
+└── README.md
+
+## 🤝 Contributions
+A simple but useful tool within a workflow. Contributions are very welcome — I aim to keep improving my skills!
+Open an _issue_ or submit a _pull request_.

@@ -1,0 +1,53 @@
+# xlsx_to_csv_consolidator
+
+Ferramenta simples em Python para consolidar múltiplos arquivos `.xlsx` de uma pasta (e subpastas) em um único arquivo `.csv`.
+
+## ✨ Funcionalidades
+
+- Varre recursivamente uma pasta em busca de arquivos `.xlsx`
+- Consolida todos em um único `DataFrame` via Pandas
+- Exporta o resultado como um único `.csv`
+- Caminhos configuráveis via variáveis de ambiente (sem expor dados sensíveis)
+
+## 🛠️ Tecnologias
+
+- Python 3.13.5
+- [Pandas](https://pandas.pydata.org/)
+- [python-dotenv](https://pypi.org/project/python-dotenv/)
+
+## 🚀 Como usar
+
+### 1. Clone o repositório
+git clone https://github.com/sucrilos_kelogs/xlsx_to_csv_consolidator.git
+cd xlsx_to_csv_consolidator
+
+### 2. Instale as dependências
+pip install pandas python-dotenv
+
+### 3. Configure as variáveis de ambiente
+Copie o arquivo de exemplo e preencha com seus caminhos:
+cp .env.example .env
+
+Edite o `.env`:
+PASTA_ORIGEM=C:\caminho\para\sua\pasta\de\origem
+ARQUIVO_SAIDA=C:\caminho\para\o\arquivo\de\saida.csv
+
+### 4. Execute
+python consolidador.py
+
+## ⚠️ Falhas conhecidas
+
+- Não utiliza banco de dados (ex: DuckDB), então **não detecta alterações** em arquivos já processados — apenas a inclusão de novos arquivos.
+- Todos os `.xlsx` precisam ter estrutura de colunas compatível para a concatenação funcionar corretamente.
+
+## 📁 Estrutura do projeto
+
+xlsx-consolidator/
+├── consolidador.py    # Script principal
+├── .env.example       # Template de configuração
+├── .gitignore         # Ignora .env e arquivos gerados
+└── README.md
+
+## 🤝 Contribuições
+Uma ferramenta simples, mas útil dentro de um fluxo de trabalho. Contribuições são muito bem-vindas, pois assim viso melhorar cada vez mais minhas habilidades!
+Abra uma _issue_ ou envie um _pull request_.
